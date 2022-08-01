@@ -143,3 +143,22 @@ function weatherRequest(city) {
         });
 };
 
+function searchEvent(event) {
+    event.preventDefault();
+    //once search is clicked call weatherRequest function
+    var searchValue = searchBar.value.trim().toUpperCase();
+    //if searched value is valid envoke the functions below
+    if (searchValue) {
+        weatherRequest(searchValue);
+        createBtn(searchValue);
+        storeHistory();
+    } else {
+        //if the search remains empty throw alert
+        alert("Please enter the city name!");
+    };
+};
+
+
+
+
+
