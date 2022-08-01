@@ -16,11 +16,33 @@
 
 <body>
     <header class = "header">
-        <h1 class = "heading display-4 text-bold">WEATHER-DASHBOARD</h1>
+        <h1 class = "heading display-4 text-light">WEATHER-DASHBOARD</h1>
     </header>
 
     <main class = "main-content container">
-        
+        <div class = "content-wrapper row">
+            
+            <!--search section with buttons -->
+            <section id ="search-wrapper" class ="search-wrap-style card col-lg-3">
+
+                <!--searching for city-->
+                <form id ="search-form" class ="text-center text-wrap">
+                    <label class ="search label" for ="search-box">Search by city</label>
+                    <input type ="text" id ="search-bar" name ="search-box" class ="form-control text-input" />
+                    <button type ="submit" form ="search-form" id ="search-button" class ="btn btn-primary btn-block"><i
+                            class ="fas fa-search"></i></button>
+                    <button type ="reset" form="search-form" id ="dlt-btn" class ="btn btn-danger btn-block"><i
+                            class ="far fa-trash-alt"></i></button>
+                </form>
+                <div id="search-history" class="card-body">
+                    <!--will save any previous displayed cities, as well as display the current selected city-->
+                </div>
+            </section>
+
+            <section id =
+
+
+        </div>
     </main>
 
 
