@@ -30,10 +30,10 @@
 
 I have created a weather application that will allow the user to check the 5 day forecast of any city in the US. The purpose of this application is to make sure our users stay informed on the weather of their area. 
 
-✋ [GitHub Repository]
+✋ [GitHub Repository] https://github.com/Ahsan-Zaidi/weather-dashboard
 
 
-✋ [Deployed App] 
+✋ [Deployed App] https://ahsan-zaidi.github.io/weather-dashboard/
 
 
 ## ✋User Story
