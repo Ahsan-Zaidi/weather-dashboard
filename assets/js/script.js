@@ -199,6 +199,41 @@ function storeHistory() {
 };
 
 
+function loadHistory() {
+    if (localStorage.getItem("searchedCities")) {
+        //parse the values we recieved into a string
+        var previousSearchCity = JSON.parse(localStorage.getItem("searchedCities"));
+
+        for (var i = 0; i < previousSearchCity.length; i++) {
+            createBtn(previousSearchCity[i]);
+        }
+    };
+
+    //populate the btnclicked variable to load the data of the city searched
+    for (i = 0; i < document.getElementsByClassName("btn").length; i++) {
+        document.getElementsByClassName("btn")[i].addEventListener('click', function () {
+            var btnClicked = this.getAttribute("data-city");
+            //call the following functions after loading 
+            weatherRequest(btnClicked);
+            removePrevious;    
+        });
+    }
+};
+
+//remove all previous loaded values clearing container elements
+function removePrevious() {
+    cityNameEl.remove();
+    uvIndexContainer.remove();
+    forecastContainer.innerHTML = "";
+    currentTempEl.remove();
+    humidityEl.remove();
+    windEl.remove();
+};
+
+//adding event listener to both buttons
+searchHandler.addEventListener("submit", searchEvent);
+deleteBtn.addEventListener("click", clearHistory);
+loadHistory();
 
 
 
