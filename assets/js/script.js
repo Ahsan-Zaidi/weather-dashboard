@@ -6,7 +6,7 @@ var searchBar = document.querySelector("#search-bar");
 var responseContainer = document.querySelector("#current-result");
 var deleteBtn = document.getElementById("dlt-btn");
 
-// Current temperature variables
+//Create the Current temperature variables
 const cityTempDiv = document.createElement('div');
 const cityDetailsDiv = document.createElement('div');
 var cityNameEl = document.createElement("div");
@@ -23,7 +23,7 @@ var searchWrapperEl = document.querySelector("#search-wrapper");
 var searchHistoryDiv = document.querySelector("#search-history");
 var cityCount = 1;
 
-//check validation
+//checking validation
 var status = false;
 // function to fetch weather api - city is received from searchEvent function as searchValue 
 function weatherRequest(city) {
@@ -157,6 +157,47 @@ function searchEvent(event) {
         alert("Please enter the city name!");
     };
 };
+
+//creating the button for searching cities
+function createBtn(city) {
+    var citySearch = document.createElement("button");
+    citySearch.textContent = city;
+
+    //layout of button
+    citySearch.classList = "btn btn-primary btn-block";
+    citySearch.setAttribute("data-city", city);
+    citySearch.setAttribute("type", "submit");
+    citySearch.setAttribute("id", "city-" + city);
+    searchHistoryDiv.prepend(citySearch);
+};
+
+//clear history of searched cities from storage
+function clearHistory() {
+    var searchedCities = JSON.parse(localStorage.getItem("searchedCities"));
+    for (var i = 0; i < searchedCities.length; i++) {
+        document.getElementById("city-" + searchedCities[i]).remove();
+    }
+    localStorage.clear("searchedCities");
+};
+
+
+function storeHistory() {
+    //create var usersearch and set to value of 'search bar'
+    //trim extra space and convert to a singular casing
+    var userSearch = document.querySelector('#search-bar').value.trim().toUpperCase();
+    if (!userSearch) {
+        return;
+    };
+
+    var previousSearchCity = JSON.parse(localStorage.getItem("searchedCities")) || [];
+    previousSearchCity.push(userSearch);
+    localStorage.setItem("searchedCities", JSON.stringify(previousSearchCity));
+
+    //clear the search bar after the button is clicked then envoke the function below
+    document.querySelector('#search-bar').value = "";
+    removePrevious();
+};
+
 
 
 
